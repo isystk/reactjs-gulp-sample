@@ -1,0 +1,5 @@
+../node_modules/immutable/dist/
+node_modules/
+public/assets/
+.vscode/
+.idea

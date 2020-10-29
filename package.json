@@ -1,0 +1,46 @@
+{
+  "name": "reactjs-gulp-sample",
+  "version": "1.0.0",
+  "description": "reactjs-gulp-sample",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp dev",
+    "release": "gulp release"
+  },
+  "author": "Ise Yoshitaka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/isystk/reactjs-gulp-sample/issues"
+  },
+  "homepage": "https://github.com/isystk/reactjs-gulp-sample/",
+  "devDependencies": {
+    "@types/node": "^9.4.5",
+    "@types/react": "^16.0.36",
+    "@types/react-dom": "^16.0.3",
+    "@types/react-redux": "^5.0.14",
+    "@types/react-router-dom": "^4.2.3",
+    "awesome-typescript-loader": "^3.4.1",
+    "browser-sync": "^2.23.6",
+    "classnames": "^2.2.5",
+    "del": "^3.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-if": "^2.0.2",
+    "gulp-ignore": "^2.0.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0",
+    "object-assign": "^4.1.1",
+    "pump": "^3.0.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "typescript": "^4.0.5",
+    "webpack": "^3.11.0",
+    "webpack-stream": "^4.0.1"
+  }
+}
