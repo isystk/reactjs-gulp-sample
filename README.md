@@ -1,27 +1,14 @@
-  gulp のサンプル
+  React.js Gulp Typescript のサンプル
 ====
 
 ## Description
 
-### 各種タスク
+### 利用しているモジュール
 
-・sass
-SassをコンパイルしてCssを生成する
-
-・javascript
-Typescriptのコンパイル
-BabelでES6(ES2005)→ES5系に変換
-ソースマップを出力
-JSファイルの統合
-babelifyでimport/export をブラウザで利用できるように変換
-ファイル圧縮
-
-・watch
-ファイルの監視
-
-・server
-LiveReload環境
-
+* Gulp4
+* TypeScript4
+* Webpack5
+* ReactJS 16
 
 ## Demo
 
@@ -33,7 +20,7 @@ LiveReload環境
 
 ```
 $ yarn
-# gulp
+# yarn run dev
 ```
 
 ## Install
@@ -42,7 +29,7 @@ $ yarn
 
 ## Licence
 
-[MIT](https://github.com/isystk/gulp-sample/LICENCE)
+[MIT](https://github.com/isystk/reactjs-gulp-sample/LICENCE)
 
 ## Author
 

@@ -1,4 +1,4 @@
 export interface AppStoreState
 {
-	welcomeMessage: string;
+	value: number;
 }

@@ -2,10 +2,10 @@ import { Reducer } from 'redux'
 import * as object_assign from 'object-assign'
 
 import { AppStoreState } from '../StoreTypes'
-import { ExampleAppAction } from '../actions/AppStoreActions'
+import { ExampleAppAction, INCREMENT, DECREMENT } from '../actions/AppStoreActions'
 
 export const initialState: AppStoreState = {
-	welcomeMessage: "Hello from gulp, TypeScript, React and Sass!"
+	value: 0
 }
 
 export function AppReducer(state: AppStoreState, action: ExampleAppAction): AppStoreState
@@ -17,12 +17,12 @@ export function AppReducer(state: AppStoreState, action: ExampleAppAction): AppS
 
 	switch (action.type)
 	{
-		case "SET_WELCOME_MESSAGE":
-			var newState: AppStoreState = {
-				welcomeMessage: action.welcomeMessage
-			}
-
-			return object_assign({}, state, newState);
+		case INCREMENT:
+			return {value: state.value + 1};
+		case DECREMENT:
+			return {value: state.value - 1};
+		default:
+		    return state;
 	}
 
 	return state;

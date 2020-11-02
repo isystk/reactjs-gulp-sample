@@ -5,7 +5,10 @@
 		"jsx": "react",
 		"removeComments": true,
 		"target": "es5",
-		"lib": ["es5", "es6", "dom"],
+		"lib": [
+			"esnext",
+			"esnext.asynciterable",
+			"dom"],
 		"typeRoots": ["node_modules/@types"]
 	},
 
