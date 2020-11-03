@@ -1,11 +1,17 @@
+// Storeとは、アプリケーションの状態(state)を保持します。
+// getState()を介してstateへのアクセスを許可します。
+// 状態をdispatch（アクション）によって更新できるようにする。
+// subscribe（listener）を介してlistenerを登録します。
+// subscribe（listener）によって返された関数を介して、listenerの登録解除を処理します。
+
 import { combineReducers, createStore, ReducersMapObject } from 'redux'
 
-import { AppReducer, initialState } from './reducers/appReducer';
+import { EventsReducer } from './reducers/events';
 
 var reducers: ReducersMapObject = {
-	AppReducer
+	EventsReducer
 }
 
 declare var window: any;
 
-export default createStore(AppReducer, initialState, window.devToolsExtension ? window.devToolsExtension() : undefined);
+export default createStore(EventsReducer, window.devToolsExtension ? window.devToolsExtension() : undefined);
