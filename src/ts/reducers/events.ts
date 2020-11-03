@@ -3,26 +3,27 @@
 
 import { Reducer } from 'redux'
 import * as object_assign from 'object-assign'
+import * as _ from 'lodash'
 
-import { AppStoreState } from '../StoreTypes'
+import { Events } from '../StoreTypes'
 import { ExampleAppAction, READ_EVENTS } from '../actions/index'
 
-export function EventsReducer(state: AppStoreState, action: ExampleAppAction): AppStoreState
+export function EventsReducer(events: Events, action: ExampleAppAction): Events
 {
-	if (typeof state == 'undefined')
+	if (typeof events == 'undefined')
 	{
-		return {};
+		return null;
 	}
 
 	switch (action.type)
 	{
 		case READ_EVENTS:
-			return state;
+		    return _.mapKeys(action.response.data, 'id');
 		default:
-		    return state;
+		    return events;
 	}
 
-	return state;
+	return events
 };
 
 export default EventsReducer;

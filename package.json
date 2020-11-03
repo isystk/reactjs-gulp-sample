@@ -41,6 +41,7 @@
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.0",
+    "lodash": "^4.17.20",
     "object-assign": "^4.1.1",
     "pump": "^3.0.0",
     "react": "^16.2.0",
@@ -53,6 +54,5 @@
     "webpack": "^5.3.2",
     "webpack-stream": "^6.1.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

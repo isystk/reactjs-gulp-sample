@@ -7,7 +7,7 @@ import axios from 'axios'
 //  あくまでどんな挙動があるかだけを定義します。
 export interface ExampleAppAction extends Action
 {
-    value?: number;
+    response?: any;
 }
 
 export const READ_EVENTS = 'READ_EVENTS'
@@ -17,7 +17,6 @@ const QUERYSTRING = '?token=token123'
 
 export const readEvents = () => async dispatch => {
     const response = await axios.get(`${ROOT_URL}/events${QUERYSTRING}`)
-    console.log(response);
     dispatch({type : READ_EVENTS, response })
 }
 
