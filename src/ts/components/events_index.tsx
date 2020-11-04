@@ -4,7 +4,7 @@ import * as _ from 'lodash'
 import { Link } from 'react-router-dom'
 
 import AppStore from '../Store'
-import { readEvents } from '../actions/index'
+import { readEvents } from '../actions'
 import { Events, Event } from '../StoreTypes'
 
 // ↓ 表示用のデータ型

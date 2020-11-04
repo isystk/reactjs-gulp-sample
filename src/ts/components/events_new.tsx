@@ -3,6 +3,8 @@ import { connect, MapStateToProps, MapDispatchToProps } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
 import { Link } from 'react-router-dom'
 
+import { postEvent } from '../acrions'
+
 // ↓ 表示用のデータ型
 interface appstateproperties
 {
@@ -21,6 +23,11 @@ interface appdispatchproperties
 export class EventsNew extends React.Component
 {
 
+    constractor(props) {
+        super(props)
+        this.onSubmit = this.onSubmit.bind(this)
+    }
+
     renderField(field) {
         const { input, label, type, meta: { touched, error } } = field
         return (
@@ -31,10 +38,16 @@ export class EventsNew extends React.Component
         )
     }
 
+    async onSubmit(values) {
+        await this.props.postEvent(values)
+        this.props.history.push('/')
+    }
+
     render() {
+        const { handleSubmit } = this.props
         return (
             <React.Fragment>
-                <form>
+                <form onSubmit={handleSubmit(this.onSubmit)}>
                     <div>
                         <Field label="Title" name="title" type="text" component={this.renderField} />
                     </div>
@@ -61,7 +74,7 @@ const validate = values => {
     return errors
 }
 
-//const mapDispatchToProps = ({ readEvents });
+const mapDispatchToProps = ({ postEvent });
 
 export default connect(null,null)(
     reduxForm({ validate, form: 'eventNewForm'})(EventsNew)
