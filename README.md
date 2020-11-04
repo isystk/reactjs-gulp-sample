@@ -25,6 +25,9 @@ $ yarn
 
 ## Install
 
+### Redux DevTools
+https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=ja&itemlang=ar
+
 ## Contribution
 
 ## Licence

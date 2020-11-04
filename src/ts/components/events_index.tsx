@@ -30,7 +30,7 @@ export class EventsIndex extends React.Component<AppStateProperties & AppDispatc
 
     renderEvents() {
         return _.map(this.props.events, event => (
-            <tr key="{event.id}">
+            <tr key={event.id}>
                 <td>{event.id}</td>
                 <td>{event.text}</td>
             </tr>

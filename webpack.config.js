@@ -1,4 +1,6 @@
 module.exports = {
+    mode: process.env.NODE_ENV,
+
 	devtool: "source-map",
 
 	output: {
@@ -23,4 +25,5 @@ module.exports = {
 			}
 		]
 	}
+
 }

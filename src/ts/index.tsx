@@ -4,13 +4,17 @@ import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
 import reducers from './reducers'
 import EventsIndex from './components/events_index'
 import EventsNew from './components/events_new'
 import { NotFound } from './components/NotFound'
 
-const store = createStore(reducers, applyMiddleware(thunk))
+// 開発環境の場合は、redux-devtools-extension を利用できるようにする
+const enhancer = process.env.NODE_ENV === 'development' ?
+    composeWithDevTools(applyMiddleware(thunk)) : applyMiddleware(thunk)
+const store = createStore(reducers, enhancer)
 
 ReactDom.render(
 	<Provider store={store} >
