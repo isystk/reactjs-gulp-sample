@@ -3,27 +3,20 @@ import { connect, MapStateToProps, MapDispatchToProps } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
 import { Link } from 'react-router-dom'
 
-import { postEvent } from '../acrions'
+import { postEvent } from '../actions'
 
 // ↓ 表示用のデータ型
-interface appstateproperties
+interface AppDispatchProperties
 {
-    events: appstateproperty[]
-}
-interface appstateproperty
-{
-    id: number;
-    text: string;
-}
-interface appdispatchproperties
-{
-	readevents;
+	postEvent;
+	history;
+	handleSubmit;
 }
 
-export class EventsNew extends React.Component
+export class EventsNew extends React.Component<AppDispatchProperties>
 {
 
-    constractor(props) {
+    constructor(props) {
         super(props)
         this.onSubmit = this.onSubmit.bind(this)
     }
@@ -76,6 +69,6 @@ const validate = values => {
 
 const mapDispatchToProps = ({ postEvent });
 
-export default connect(null,null)(
+export default connect(null, mapDispatchToProps)(
     reduxForm({ validate, form: 'eventNewForm'})(EventsNew)
 )
