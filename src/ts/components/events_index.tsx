@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect, MapStateToProps, MapDispatchToProps } from 'react-redux'
 import * as _ from 'lodash'
+import { Link } from 'react-router-dom'
 
 import AppStore from '../Store'
 import { readEvents } from '../actions/index'
@@ -29,7 +30,7 @@ export class EventsIndex extends React.Component<AppStateProperties & AppDispatc
 
     renderEvents() {
         return _.map(this.props.events, event => (
-            <tr>
+            <tr key="{event.id}">
                 <td>{event.id}</td>
                 <td>{event.text}</td>
             </tr>
@@ -37,7 +38,6 @@ export class EventsIndex extends React.Component<AppStateProperties & AppDispatc
     }
 
     render() {
-        const props = this.props;
         return (
             <React.Fragment>
                 <table>
@@ -51,6 +51,9 @@ export class EventsIndex extends React.Component<AppStateProperties & AppDispatc
                         {this.renderEvents()}
                     </tbody>
                 </table>
+
+                <Link to="/events/new">New Event</Link>
+
             </React.Fragment>
         )
     }
