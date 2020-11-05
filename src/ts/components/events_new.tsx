@@ -13,6 +13,7 @@ interface AppDispatchProperties
 	handleSubmit;
     pristine;
     submitting;
+    invalid;
  }
 
 export class EventsNew extends React.Component<AppDispatchProperties>
@@ -41,7 +42,7 @@ export class EventsNew extends React.Component<AppDispatchProperties>
     render() {
         // pristineは、フォームが未入力状態の場合にtrueを返す
         // submittingは、既にSubmit済みの場合にtrueを返す
-        const { handleSubmit, pristine, submitting } = this.props
+        const { handleSubmit, pristine, submitting, invalid } = this.props
         return (
             <React.Fragment>
                 <form onSubmit={handleSubmit(this.onSubmit)}>
@@ -52,7 +53,7 @@ export class EventsNew extends React.Component<AppDispatchProperties>
                         <Field label="Body" name="body" type="text" component={this.renderField} />
                     </div>
                     <div>
-                        <input type="submit" value="Submit" disabled={pristine || submitting} />
+                        <input type="submit" value="Submit" disabled={pristine || submitting || invalid} />
                         <Link to="/" >Cancel</Link>
                     </div>
                 </form>

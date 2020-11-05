@@ -16,6 +16,7 @@ interface AppDispatchProperties
 	handleSubmit;
     pristine;
     submitting;
+    invalid;
  }
 
 export class EventsShow extends React.Component<AppDispatchProperties>
@@ -25,6 +26,11 @@ export class EventsShow extends React.Component<AppDispatchProperties>
         super(props)
         this.onSubmit = this.onSubmit.bind(this)
         this.onDeleteClick = this.onDeleteClick.bind(this)
+    }
+
+    componentDidMount() {
+        const { id } = this.props.match.params
+        if (id) this.props.getEvent(id)
     }
 
     renderField(field) {
@@ -39,7 +45,6 @@ export class EventsShow extends React.Component<AppDispatchProperties>
 
     async onDeleteClick() {
         const { id } = this.props.match.params
-        console.log(id);
         await this.props.deleteEvent(id)
         this.props.history.push('/')
     }
@@ -52,7 +57,7 @@ export class EventsShow extends React.Component<AppDispatchProperties>
     render() {
         // pristineは、フォームが未入力状態の場合にtrueを返す
         // submittingは、既にSubmit済みの場合にtrueを返す
-        const { handleSubmit, pristine, submitting } = this.props
+        const { handleSubmit, pristine, submitting, invalid } = this.props
         return (
             <React.Fragment>
                 <form onSubmit={handleSubmit(this.onSubmit)}>
@@ -63,9 +68,9 @@ export class EventsShow extends React.Component<AppDispatchProperties>
                         <Field label="Body" name="body" type="text" component={this.renderField} />
                     </div>
                     <div>
-                        <input type="submit" value="Submit" disabled={pristine || submitting} />
-                        <Link to="/" >Cancel</Link>
-                        <Link to="/" onClick={this.onDeleteClick} >Delete</Link>
+                        <input type="submit" value="Submit" disabled={pristine || submitting || invalid} />
+                        <Link to="/" >キャンセル</Link>
+                        <Link to="/" onClick={this.onDeleteClick} >削除</Link>
                     </div>
                 </form>
             </React.Fragment>
@@ -83,8 +88,13 @@ const validate = values => {
     return errors
 }
 
+const mapStateToProps = (state, ownProps) => {
+    const event = state.events[ownProps.match.params.id]
+    return { initialValues: event, event }
+}
+
 const mapDispatchToProps = ({ getEvent, deleteEvent, putEvent });
 
-export default connect(null, mapDispatchToProps)(
-    reduxForm({ validate, form: 'eventShowForm'})(EventsShow)
+export default connect(mapStateToProps, mapDispatchToProps)(
+    reduxForm({ validate, form: 'eventShowForm', enableReinitialize: true})(EventsShow)
 )

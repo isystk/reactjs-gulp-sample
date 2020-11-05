@@ -1,7 +1,7 @@
 // ↓ 取得用のデータ型
 export interface Events
 {
-    events: Event[]
+    events?: Event[]
 }
 
 export interface Event {
