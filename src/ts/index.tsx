@@ -9,6 +9,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import reducers from './reducers'
 import EventsIndex from './components/events_index'
 import EventsNew from './components/events_new'
+import EventsShow from './components/events_show'
 import { NotFound } from './components/NotFound'
 
 // 開発環境の場合は、redux-devtools-extension を利用できるようにする
@@ -21,7 +22,9 @@ ReactDom.render(
 		<Router>
 			<Switch>
 				<Route exact path="/" component={EventsIndex} />
-				<Route exact path="/events/new" component={EventsNew} />
+				<Route path="/events/new" component={EventsNew} />
+				<Route path="/events/:id" component={EventsShow} />
+				<Route exact path="/events" component={EventsIndex} />
 				<Route component={NotFound}/>
 			</Switch>
 		</Router>

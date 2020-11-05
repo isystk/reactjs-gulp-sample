@@ -6,7 +6,11 @@ import * as object_assign from 'object-assign'
 import * as _ from 'lodash'
 
 import { Events } from '../StoreTypes'
-import { ExampleAppAction, READ_EVENTS } from '../actions/index'
+import {
+ExampleAppAction,
+READ_EVENTS,
+DELETE_EVENT
+} from '../actions/index'
 
 export function EventsReducer(events: Events, action: ExampleAppAction): Events
 {
@@ -18,9 +22,12 @@ export function EventsReducer(events: Events, action: ExampleAppAction): Events
 	switch (action.type)
 	{
 		case READ_EVENTS:
-		    return _.mapKeys(action.response.data, 'id');
+		    return _.mapKeys(action.response.data, 'id')
+		case DELETE_EVENT:
+		    delete events[action.id]
+		    return { ...events }
 		default:
-		    return events;
+		    return events
 	}
 
 	return events
