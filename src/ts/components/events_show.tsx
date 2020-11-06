@@ -102,5 +102,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = ({ getEvent, deleteEvent, putEvent });
 
 export default connect(mapStateToProps, mapDispatchToProps)(
+    // enableReinitialize をtrueにすると別ユーザーによってデータが変更されている場合でも常に最新のデータを取得して表示できる。
     reduxForm({ validate, form: 'eventShowForm', enableReinitialize: true})(EventsShow)
 )
