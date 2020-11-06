@@ -53,8 +53,8 @@ export class EventsNew extends React.Component<AppDispatchProperties>
                         <Field label="Body" name="body" type="text" component={this.renderField} />
                     </div>
                     <div>
-                        <input type="submit" value="Submit" disabled={pristine || submitting || invalid} />
-                        <Link to="/" >Cancel</Link>
+                        <input type="submit" value="登録" disabled={pristine || submitting || invalid} />
+                        <Link to="/" >キャンセル</Link>
                     </div>
                 </form>
             </React.Fragment>

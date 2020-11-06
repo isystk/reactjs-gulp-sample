@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import { composeWithDevTools } from 'redux-devtools-extension'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 import reducers from './reducers'
 import EventsIndex from './components/events_index'
@@ -18,6 +19,7 @@ const enhancer = process.env.NODE_ENV === 'development' ?
 const store = createStore(reducers, enhancer)
 
 ReactDom.render(
+    <MuiThemeProvider>
 	<Provider store={store} >
 		<Router>
 			<Switch>
@@ -28,6 +30,7 @@ ReactDom.render(
 				<Route component={NotFound}/>
 			</Switch>
 		</Router>
-	</Provider>,
+	</Provider>
+	</MuiThemeProvider>,
 	document.getElementById("appContainer")
 );
