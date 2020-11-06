@@ -23,7 +23,7 @@ export class EventsNew extends React.Component<AppDispatchProperties> {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  renderField(field) {
+  renderField(field): JSX.Element {
     const {
       input,
       label,
@@ -42,12 +42,12 @@ export class EventsNew extends React.Component<AppDispatchProperties> {
     );
   }
 
-  async onSubmit(values) {
+  async onSubmit(values): void {
     await this.props.postEvent(values);
     this.props.history.push("/");
   }
 
-  render() {
+  render(): JSX.Element {
     // pristineは、フォームが未入力状態の場合にtrueを返す
     // submittingは、既にSubmit済みの場合にtrueを返す
     const { handleSubmit, pristine, submitting, invalid } = this.props;

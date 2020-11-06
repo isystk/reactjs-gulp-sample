@@ -31,7 +31,7 @@ export class EventsShow extends React.Component<AppDispatchProperties> {
     if (id) this.props.getEvent(id);
   }
 
-  renderField(field) {
+  renderField(field): JSX.Element {
     const {
       input,
       label,
@@ -61,7 +61,7 @@ export class EventsShow extends React.Component<AppDispatchProperties> {
     this.props.history.push("/");
   }
 
-  render() {
+  render(): JSX.Element {
     // pristineは、フォームが未入力状態の場合にtrueを返す
     // submittingは、既にSubmit済みの場合にtrueを返す
     const { handleSubmit, pristine, submitting, invalid } = this.props;

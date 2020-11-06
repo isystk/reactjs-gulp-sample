@@ -1,5 +1,6 @@
 import { Action } from "redux";
 import axios from "axios";
+import { Dispatch } from "redux";
 
 //  アクションは『何か』が起こった時、Storeに『どんなデータ』を利用するかということを定義します。
 //  ActionCreatorであるstore.dispatch()を使ってStoreに送信しますが、storeについてはこの記事の最後にまとめています。(※ こちら)
@@ -19,27 +20,27 @@ export const UPDATE_EVENT = "UPDATE_EVENT";
 const ROOT_URL = "https://udemy-utils.herokuapp.com/api/v1";
 const QUERYSTRING = "?token=token123";
 
-export const readEvents = () => async (dispatch) => {
+export const readEvents = () => async (dispatch: Dispatch): void => {
   const response = await axios.get(`${ROOT_URL}/events${QUERYSTRING}`);
   dispatch({ type: READ_EVENTS, response });
 };
 
-export const postEvent = (values) => async (dispatch) => {
+export const postEvent = (values: any) => async (dispatch: Dispatch): void => {
   const response = await axios.post(`${ROOT_URL}/events${QUERYSTRING}`, values);
   dispatch({ type: CREATE_EVENT, response });
 };
 
-export const getEvent = (id) => async (dispatch) => {
+export const getEvent = (id: number) => async (dispatch: Dispatch): void => {
   const response = await axios.get(`${ROOT_URL}/events/${id}${QUERYSTRING}`);
   dispatch({ type: READ_EVENT, response });
 };
 
-export const deleteEvent = (id) => async (dispatch) => {
+export const deleteEvent = (id: number) => async (dispatch: Dispatch): void => {
   await axios.delete(`${ROOT_URL}/events/${id}${QUERYSTRING}`);
   dispatch({ type: DELETE_EVENT, id });
 };
 
-export const putEvent = (values) => async (dispatch) => {
+export const putEvent = (values: any) => async (dispatch: Dispatch): void => {
   const response = await axios.put(
     `${ROOT_URL}/events/${values.id}${QUERYSTRING}`,
     values

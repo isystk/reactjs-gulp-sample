@@ -33,11 +33,11 @@ export class EventsIndex extends React.Component<
   AppStateProperties & AppDispatchProperties,
   any
 > {
-  componentDidMount() {
+  componentDidMount(): void {
     this.props.readEvents();
   }
 
-  renderEvents() {
+  renderEvents(): JSX.Element {
     return _.map(this.props.events, (event) => (
       <TableRow key={event.id}>
         <TableRowColumn>{event.id}</TableRowColumn>
@@ -48,7 +48,7 @@ export class EventsIndex extends React.Component<
     ));
   }
 
-  render() {
+  render(): JSX.Element {
     const style = {
       position: "fixed",
       right: 12,
