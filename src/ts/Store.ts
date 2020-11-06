@@ -4,14 +4,17 @@
 // subscribe（listener）を介してlistenerを登録します。
 // subscribe（listener）によって返された関数を介して、listenerの登録解除を処理します。
 
-import { combineReducers, createStore, ReducersMapObject } from 'redux'
+import { combineReducers, createStore, ReducersMapObject } from "redux";
 
-import { EventsReducer } from './reducers/events';
+import { EventsReducer } from "./reducers/events";
 
-var reducers: ReducersMapObject = {
-	EventsReducer
-}
+const reducers: ReducersMapObject = {
+  EventsReducer,
+};
 
-declare var window: any;
+declare let window: any;
 
-export default createStore(EventsReducer, window.devToolsExtension ? window.devToolsExtension() : undefined);
+export default createStore(
+  EventsReducer,
+  window.devToolsExtension ? window.devToolsExtension() : undefined
+);

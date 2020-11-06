@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=development gulp dev",
-    "release": "NODE_ENV=production gulp release"
+    "release": "NODE_ENV=production gulp release",
+    "lint": "eslint --ext .js,.ts,.tsx .",
+    "lintfix": "eslint --fix --ext .js,.ts,.tsx .",
+    "precommit": "npm run lint"
   },
   "author": {
     "name": "isystk",
@@ -27,11 +30,16 @@
     "@types/react-dom": "^16.0.3",
     "@types/react-redux": "^5.0.14",
     "@types/react-router-dom": "^4.2.3",
+    "@typescript-eslint/eslint-plugin": "^4.6.1",
+    "@typescript-eslint/parser": "^4.6.1",
     "awesome-typescript-loader": "^3.4.1",
     "axios": "^0.21.0",
     "browser-sync": "^2.23.6",
     "classnames": "^2.2.5",
     "del": "^3.0.0",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^4.1.0",
     "gulp-concat": "^2.6.1",
@@ -44,6 +52,7 @@
     "lodash": "^4.17.20",
     "material-ui": "0.20.0",
     "object-assign": "^4.1.1",
+    "prettier": "^2.1.2",
     "pump": "^3.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
